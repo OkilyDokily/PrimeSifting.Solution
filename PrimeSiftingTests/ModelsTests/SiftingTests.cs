@@ -49,7 +49,7 @@ namespace PrimeSiftingTests
             CollectionAssert.AreEqual(result,pl);
         }
 
-         [TestMethod]
+        [TestMethod]
         public void OperateOnFinalList_ReturnPrimeList_False(){
             //Arrange
             Sifter s = new Sifter(5);
@@ -59,6 +59,17 @@ namespace PrimeSiftingTests
             //act
             List<int> result = s.OperateOnFinalList();
             CollectionAssert.AreNotEqual(result,pl);
+        }
+
+        [TestMethod]
+        public void Sift_ReturnPrimeList_True(){
+            //Arrange
+            Sifter s = new Sifter(5);
+            List<int> pl = new List<int>(){2,3,5};
+            //act
+            List<int> result = s.Sift();
+           
+            CollectionAssert.AreEqual(result,pl);
         }
     }
 }
