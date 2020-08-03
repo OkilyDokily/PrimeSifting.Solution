@@ -25,7 +25,7 @@ namespace PrimeSiftingTests
             CollectionAssert.AreEqual(al,actl);
         }
 
-          [TestMethod]
+        [TestMethod]
         public void Sifter_SifterConstructorCreatesList_False(){
             //Arrange
             Sifter s = new Sifter(5);
@@ -35,6 +35,30 @@ namespace PrimeSiftingTests
             List<string> actl = s._initalList;
             
             CollectionAssert.AreNotEqual(al,actl);
+        }
+
+        [TestMethod]
+        public void OperateOnFinalList_ReturnPrimeList_True(){
+            //Arrange
+            Sifter s = new Sifter(5);
+            List<string> al = new List<string>{"X","O","O","X","O"};
+            s._initalList = al;
+            List<int> pl = new List<int>(){2,3,5};
+            //act
+            List<int> result = s.OperateOnFinalList();
+            CollectionAssert.AreEqual(result,pl);
+        }
+
+         [TestMethod]
+        public void OperateOnFinalList_ReturnPrimeList_False(){
+            //Arrange
+            Sifter s = new Sifter(5);
+            List<string> al = new List<string>{"X","O","O","X","O"};
+            s._initalList = al;
+            List<int> pl = new List<int>(){2,3,4};
+            //act
+            List<int> result = s.OperateOnFinalList();
+            CollectionAssert.AreNotEqual(result,pl);
         }
     }
 }
